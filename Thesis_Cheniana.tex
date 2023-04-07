@@ -1,0 +1,414 @@
+\documentclass[UTF8]{article}%中文
+\usepackage[a4paper,left=2.0cm,right=2.0cm,top=2.5cm,bottom=2.5cm,bindingoffset=0.5cm]{geometry}%页边距、装订线
+\usepackage{titlesec,titletoc}%标
+\usepackage{tikz}%绘图
+\usepackage{xeCJK}%字体
+\usepackage{ctex}%中文
+\usepackage{color,xcolor}%颜色
+\usepackage{pifont}%带圈编号
+\usepackage{amsthm,amsmath,amssymb,amsfonts,mathrsfs}%数学
+\usepackage{graphicx}%图表图形
+\usepackage{float}
+\usepackage{subfigure}%目录设置
+\usepackage[subfigure]{tocloft}
+\usepackage{setspace}%行距
+\usepackage{numerica}%计算
+\usepackage{makecell}%表换行
+\usepackage{siunitx}%单位SI
+\renewcommand{\arraystretch}{1.5}
+%字体设置区
+\setCJKmainfont{simsun.ttc}%全局字体宋体
+\setCJKfamilyfont{hei}{simhei.ttf}%黑体
+\newcommand{\hei}{\CJKfamily{hei}}
+\setCJKfamilyfont{sun}{simsun.ttc}%宋体
+\newcommand{\sun}{\CJKfamily{sun}}
+\setCJKfamilyfont{kai}{simkai.ttf}%楷体
+\newcommand{\kai}{\CJKfamily{kai}}
+\setCJKfamilyfont{kaigb}{kaiti2312.ttf}%楷体GB2312
+\newcommand{\kaigb}{\CJKfamily{kaigb}}
+%字号设置区
+\newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}%初号
+\newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont}%小初号
+\newcommand{\yihao}{\fontsize{28pt}{\baselineskip}\selectfont}%一号
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}%二号
+\newcommand{\xiaoerhao}{\fontsize{18pt}{\baselineskip}\selectfont}%小二号
+\newcommand{\sanhao}{\fontsize{16.25pt}{\baselineskip}\selectfont}%三号
+\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont}%小三号
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}%四号
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}%小四号
+%目录设置区
+\renewcommand*\contentsname{\ce{\sanhao\hei 目录}}%目录两个字小三黑体
+\renewcommand{\cftsecfont}{\xiaosihao\sun}%目录一级小四宋体
+\renewcommand{\cftsubsecfont}{\xiaosihao\sun}%目录二级小四宋体
+\renewcommand{\cftsubsubsecfont}{\xiaosihao\sun}%目录三级小四宋体
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}%目录的点
+%各级标题设置区
+\titleformat{\section}{\centering\bf\sanhao\hei}{\thesection}{1em}{}%正文一级三号黑体居中
+\titleformat{\subsection}{\raggedright\bf\xiaosanhao\hei}{\thesubsection}{1em}{}%正文二级小三黑体左对齐
+\titleformat{\subsubsection}{\raggedright\bf\sihao\hei}{\thesubsubsection}{1em}{}%正文三级四号黑体左对齐
+\titlespacing{\section}{0pt}{0pt}{4.25pt}%一级前后间距
+\titlespacing{\subsection}{0pt}{0pt}{4.25pt}%二级前后间距
+\titlespacing{\subsubsection}{0pt}{0pt}{4.25pt}%三级前后间距
+%自定义函数区
+\newcommand{\p}[4][0.5]{\begin{figure}[h]\centering\includegraphics[scale=#1]{pics/#2}\\\caption{#3}\label{#4}\end{figure}}%图片
+\newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral#1}}%罗马数字
+\newcommand{\ce}[1]{\begin{center}#1\end{center}}%居中
+\newcommand{\f}[2][1]{\footnote[#1]{#2}}%脚注
+\newcommand{\rf}[2]{\bibitem{#1}#2}%参考文献
+\newcommand{\urf}[1]{$^{\cite{#1}}$}%引用参考文献
+\newcommand{\n}{\par}%新段落
+\begin{document}
+%封面区
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.3]{pics/西安科技大学高新学院校徽.png}
+\end{figure}
+\begin{center}
+	\kaigb\sanhao%楷体GB三号
+	\begin{tabular}{|c|c|}
+		\hline\makebox[9em][s]{系别}&信息与科技工程学院\\
+		\hline\makebox[9em][s]{专业名称}&机械设计制造及其自动化\\
+		\hline\makebox[9em][s]{学生姓名}&张益榕\\
+		\hline\makebox[9em][s]{学号}&1901070138\\
+		\hline\makebox[9em][s]{指导教师姓名、取称}&焦艳梅\\\hline
+	\end{tabular}
+\end{center}
+\thispagestyle{empty}%封面无页码
+\clearpage
+%内容区
+\begin{spacing}{1.5}%全局1.5倍行距
+\setlength{\parindent}{2em}%首行缩进
+\sun\xiaosihao%宋体小四
+\setlength{\abovedisplayskip}{1.5pt}%公式前间距
+\setlength{\belowdisplayskip}{1.5pt}%公式前间距
+\pagenumbering{Roman}%页码设为罗马数字
+\section*{摘要}
+	题目是什么，要求是什么\n
+	如何设计，什么方法\n
+\clearpage
+\section*{ABSTRACT}
+	abstract\n
+	abstract\n
+	abstract\n
+\clearpage
+\begin{spacing}{1.2}
+	\tableofcontents%目录
+\end{spacing}
+\clearpage
+\pagenumbering{arabic}%页码设为阿拉伯数字
+\setcounter{page}{1}%此处重新开始页码
+\section{绪论}
+	\subsection{课题的研究意义和背景}
+	钻床是一种利用钻头在工件表面加工孔的机械设备。钻头以旋转作为主要运动，轴向移动为辅助进给运动。钻床具有结构简单的特点，加工精度较低，可进行钻通孔、盲孔、扩孔、锪孔、铰孔和攻丝等加工，可以更换特殊刀具。工件固定，刀具运动，将刀具中心精确定位于正孔中心，并进行旋转（主运动），这是钻床加工的特点。钻床按照用途和结构可以分为：立式钻床、台式钻床、摇臂式钻床、深孔钻床、铣钻床、中心孔钻床、多轴钻床等。\n
+	在实际的加工过程中，待加工表面的孔通常分布在不同的位置且大小不一，普通的摇臂钻床存在需要重复装夹工件的缺陷。
+	\subsection{普通钻床的研究现状}
+		\subsubsection{国内研究现状}
+		国内研究现状\n
+		国内研究现状\n
+		国内研究现状\n
+		\subsubsection{国外研究现状}
+		国外研究现状\n
+		国外研究现状\n
+		国外研究现状\n
+	\subsection{小型机械臂的研究现状}
+		\subsubsection{国内研究现状}
+		国内研究现状\n
+		国内研究现状\n
+		国内研究现状\n
+		\subsubsection{国外研究现状}
+		国外研究现状\n
+		国外研究现状\n
+		国外研究现状\n
+	\subsection{末端轨迹优化的研究现状}
+		\subsubsection{国内研究现状}
+		国内研究现状\n
+		国内研究现状\n
+		国内研究现状\n
+		\subsubsection{国外研究现状}
+		国外研究现状\n
+		国外研究现状\n
+		国外研究现状\n
+	\subsection{课题研究的目的}
+	课题研究的目的\n
+	课题研究的目的\n
+	课题研究的目的\n
+\clearpage
+\section{6$-$DOF钻头系统的结构设计}
+	\subsection{同步带轮的选用}
+	转动副关节常用的传动方式有电机直驱传动、齿轮传动、链传动、同步带传动、液压传动等方式，对于精度要求较高的关节通常会采用齿轮传动，如高精度锥蜗杆传动、圆弧齿轮传动等，此类传动虽然精确，但是因为特殊齿形需要专门的加工设备，且加工工序复杂，故成本高，维护不便。对于定位精度要求不高且运动所需功率较小的转动副关节，通常采用同步带传动。同步带传动在工业上的应用非常广泛，适用于两传动轴间距较远的场合或传动轴线不平行的场合，例如常见的有3D打印机的定位机构、KUKA机器人末端关节传动机构等。\n
+	本次的钻头系统中，各转动关节之间的动力传动均采用同步带传动，且为了便于计算和提高系统的互换性，整个系统仅使用三种同型号不同齿数的同步带轮，分别为$z_1=24$齿、$z_2=36$齿和$z_3=72$齿同步带轮，故带传动系统的传动比为
+	\begin{align*}
+		i_{12}&=\frac{z_2}{z_1}=1.5\\ i_{13}&=\frac{z_3}{z_1}=3\\ i_{23}&=\frac{z_3}{z_2}=2
+	\end{align*}
+	因此，系统的整体传动比介于$i=1.5\sim3$且均为整数，便于计算。同时为了增大驱动机输出的扭矩，所有驱动机上均安装24齿的同步带轮，主运动臂大臂上通过螺栓安装72齿同步轮（如图\ref{dbzz}），其余所有的传动部位均安装36齿同步轮。故可得到各级的增扭系数
+	\begin{align*}
+		\eta_{12}=\frac{T_2}{T_1}=\frac{z_2}{z_1}=i_{12}=1.5\\
+		\eta_{13}=\frac{T_3}{T_1}=\frac{z_3}{z_1}=i_{13}=3.0
+	\end{align*}
+	\begin{tabular}{cl}
+		其中：$\eta$—增扭系数
+	\end{tabular}\n
+	\p[0.13]{72齿同步带轮（左）和大臂整体组装图（右）.PDF}{72齿同步带轮（左）和大臂整体组装图（右）}{dbzz}
+	\subsection{同步带轮的具体参数及绘制尺寸}
+	\begin{center}
+		\renewcommand{\arraystretch}{0.6}
+		HTD8M$-$24齿同步带轮具体参数\n
+		\vspace*{0.2cm}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline 型号&节径$d$&外径$d_o$&齿数&齿槽弧半径$R$\\
+			\hline HTD$-$8M&61.12&59.75&24&$2.57\pm0.08$\\
+			\hline 齿槽角$2\phi$&齿顶圆半径$r$&节距$S$&齿槽深$h_g$&\\
+			\hline $14^{\circ}$&$0.78_0^{+0.10}$&8&$3.54_{-0.12}^{0}$&\\\hline
+		\end{tabular}
+	\end{center}\n
+	\begin{center}
+		\renewcommand{\arraystretch}{0.6}
+		HTD8M$-$36齿同步带轮具体参数\n
+		\vspace*{0.2cm}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline 型号&节径$d$&外径$d_o$&齿数&齿槽弧半径$R$\\
+			\hline HTD$-$8M&91.67&90.3&36&$2.57\pm0.08$\\
+			\hline 齿槽角$2\phi$&齿顶圆半径$r$&节距$S$&齿槽深$h_g$&\\
+			\hline $14^{\circ}$&$0.78_0^{+0.10}$&8&$3.54_{-0.12}^{0}$&\\\hline
+		\end{tabular}
+	\end{center}\n
+	\begin{center}
+		\renewcommand{\arraystretch}{0.6}
+		HTD8M$-$72齿同步带轮具体参数\n
+		\vspace*{0.2cm}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline 型号&节径$d$&外径$d_o$&齿数&齿槽弧半径$R$\\
+			\hline HTD$-$8M&183.35&181.98&72&$2.57\pm0.08$\\
+			\hline 齿槽角$2\phi$&齿顶圆半径$r$&节距$S$&齿槽深$h_g$&\\
+			\hline $14^{\circ}$&$0.78_0^{+0.10}$&8&$3.54_{-0.12}^{0}$&\\\hline
+		\end{tabular}
+	\p[0.09]{24（左）、36（中）、72（右）齿同步带轮齿廓绘制尺寸.PDF}{24（左）、36（中）、72（右）齿同步带轮齿廓绘制尺寸}{dr24}
+	\end{center}\n
+	\subsection{三轴同心传动结构的选择}
+	为了最大程度减轻末端执行机构的空运动负载，设计时应当尽可能将大质量的驱动电机和传动轴向运动基座靠近。由于末端执行的钻头相对与运动基座应当具有四个自由度，因而拟定各连杆之后，中间传递轴的设计共有两种结构。\n
+	\p[0.105]{传动轴同心结构一（左）和结构二（右）.jpg}{传动轴同心结构一（左）和结构二（右）}{tongxiaxis}\n
+	第一种结构：将两个驱动电机布置在主关节大臂之前，第三个驱动电机则直接布置在小臂之中。如图\ref{tongxiaxis}左，小臂的转动和摆动由前两级的传动轴（图\ref{tongxiaxis}左黄色线）通过同步带轮来传递；机构末端则由布置在小臂内的驱动电机带动同步带传动来传递运动（图\ref{tongxiaxis}左红色线）。\n
+	第二种结构：主运动臂内不设置任何驱动电机，三个驱动电机均位于主关节大臂之前。如图\ref{tongxiaxis}，小臂的转动和摆动以及末端执行机构均由大臂之前的三个驱动电机通过三轴同心的结构来传递。此结构的核心在于三轴的同心传动设计，以及如何保证三轴运动互补干扰且轴端的同步带轮可靠支持。\n
+	上述两种结构中，结构一更加简单，两轴同心的布局对设计要求也较低，通常用于高精度、传动功率较大的场合，但是对于钻孔的要求来说，其末端质量太大，主运动的驱动电机和末端执行机构的驱动电机的质量将超过大臂之前的驱动电机,且对于钻孔的任务来说，其重复定位和加工的精度要求较低，因而实际设计时，选用第二种结构。\n
+	\subsection{三轴同心传动结构的设计}
+	三轴同心传动结构的设计如图所示\ref{sztx}，为了最大程度节约成本和便于后期的维护，三轴轴端的同步带轮均采用国家标准件HTD$-$8M型，主支撑轴（短轴）的轴承承采用国标深沟球轴承6012型，中间轴（中轴）的轴承采用国标滚针轴承HF0608型，万向节连接轴（长轴）的轴承采用国标深沟球轴承6006型，长轴轴端的夹紧螺母为国标六角螺母M12C型，中间轴的夹紧螺母为国标812M16型。\n
+	\p[0.4]{三轴同心结构剖面图.png}{三轴同心结构剖面图}{sztx}
+		\subsubsection{主支撑轴（短轴）的结构设计及强度校核}
+		短轴轴端的同步带轮通过过盈配合连接在轴上，该轴为传动轴，仅承受扭矩。根据设计，最大切削功率拟定为末端电机的最大输出功率$P_{o\max}=\SI{7.5}{kW}$\n
+		根据切削功率公式$$P_{o}=\frac{F_zV+F_xn_wf}{1000}$$\n
+		结合设计要求\n
+		\begin{center}
+			\renewcommand{\arraystretch}{1}
+			\begin{tabular}{|c|c|c|c|}
+				\hline$V_{\max}$（m/s）&$F_{x\max}$（N）&$n_{w\max}$（r/s）&$f_{\max}$（mm/s）\\
+				\hline10.67&300&2150&8\\\hline
+			\end{tabular}
+		\end{center}\n
+		可求得系统所需要的最大切削力$F_{x\max}=\SI{219.31}{N}$，实际使用的过程中，由于具有相对运动的构件之间存在摩擦会导致转矩上的损失（各同步带传动之间的传动比为1），设计时将此最大切削力$F_{x\max}=\SI{219.31}{N}$乘以安全系数$S$得到设计时轴受到的力，故有$$T_{x\max}=\frac{F_{x\max}D_sS}{\delta}=\frac{219.31\times55\times1.5}{51.75}=\SI{349.62}{N\cdot m}$$\n
+		\renewcommand{\arraystretch}{1}
+		\begin{tabular}{cl}
+			其中：&$P_o$—切削功率（KW）\\
+			&$F_z$—切削力（N）\\
+			&$V$—切削速度（m/s）\\
+			&$F_x$—进给力（N）\\
+			&$n_w$—工件转速（r/s）\\
+			&$f$—进给量（mm/s）\\
+			&$\delta$—空心轴修正系数\\
+			&$D_s$—空心轴最小厚度处内径（mm）\\
+		\end{tabular}\\\n
+		将求得的最大力矩导入SolidWorks Simulation进行强度校核，轴的材料设定为1045钢（美标45号钢），设定轴承支撑处为为固定几何体夹具，给定右端同步带轮所在中轴端为堵转状态，右端施加$\SI{349.62}{N\cdot m}$的扭矩，按Simulation标准分割网格，根据仿真结果（如图\ref{dzqdjh}）得屈服力最大处$3.6\times10^7~\mathrm{N/m^2}$，远小于材料的最大屈服强度$5.3\times10^8~\mathrm{N/m^2}$，经验证该轴满足设计强度的要求。
+		\p[0.4]{短轴强度校核应力分布图.png}{短轴强度校核应力分布图}{dzqdjh}
+		\subsubsection{中间轴（中轴）的结构设计及强度校核}
+		为了便于中轴同步带轮的装卸和维护，中轴轴端的同步带轮通过过渡配合连接在轴上，轴与同步带轮毂孔允许自由转动，力矩的传递是通过国标812M16型圆螺母进行轴端夹紧来实现的。轴端的两个同步带轮依靠HF0608滚针轴承支撑在短轴上，这样不仅使得短轴和中轴独立旋转互不干扰，且同步带轮通过轴承旋转，摩擦阻力小，功率损耗小。\n
+		基本力校核同短轴的校核步骤相同，但是由于中轴的轴端需要起支撑短轴同步带轮的作用，因而除受系统负载扭矩之外，还受到一个径向负载力，因而将径向力根据第四强度校核理论（弯扭理论）对扭矩放大1.3倍进项计算，得到$T_{x\max}=349.62\times1.3=\SI{454.51}{N\cdot m}$，Simulation操作步骤同短轴，经有限元分析（如图\ref{zzqdjh}）可知轴上屈服力最大处为$8.2\times10^7~\mathrm{N/m^2}$，远小于材料的最大屈服强度$5.3\times10^8~\mathrm{N/m^2}$，经验证该轴满足设计强度的要求。
+		\p[0.4]{中轴强度校核应力分布图.png}{中轴强度校核应力分布图}{zzqdjh}
+		\subsubsection{万向节连接轴（长轴）的结构设计及强度校核}
+		为了将动力由大臂前端传递至末端的执行机构，且转动的轴线方向并不共线，故需要万向节来改变传动方向。在应用万向节时，通常需要考虑从动轴的不等速性及主、从轴之间的转矩分析，由于末端的执行元件的位置采用霍尔传感器反馈给闭环控制系统，因而设计时不考虑主、从轴之间的不等速性，仅考虑两者之间的转矩关系。当主、从轴之间的夹角不等于$180^{\circ}$时，主动轴上便存在附加弯矩，由于附加弯矩的作用方向随着叉平面的转动而不断变化，增加了计算难度。通过平面力矩分析，可以确定两个附加弯矩的合力矩；当叉平面与主轴和从动轴平面平行或垂直时，也可以很容易地确定两个附加弯矩。要分析每个旋转位置的两个附加弯矩的大小，必须通过弯矩的三维分析法\urf{ch01}来确定。
+		\p[0.15]{十字轴万向节示意图及受力分析图.PDF}{十字轴万向节示意图及十字轴所受力矩分析}{szzsxfx}
+		如图\ref{szzsxfx}所示，万向联轴器十字轴的主轴和从动轴之间存在夹角$\varphi_0$，不能单独在主动轴驱动扭矩和主动轴反扭矩的作用下平衡。由于这两个扭矩作用在不同的平面上，因此它们的矢量夹角相互之间不自闭。此时，必须有另一个力偶矩作用在万向节上。借助力矩传递三维分析法\urf{ch01}，可求得作用在主动叉平面上的弯曲力偶矩为$T_{1}^{\prime}$（也称附加弯矩，其矢量方向垂直 于主动叉平面）、从动轴对主动轴的反扭矩$T_2$、作用在从动叉平面的附加弯矩$T_{2}^{\prime}$
+		\begin{align*}
+			T_{1}^{\prime}&=-\cos\theta\tan\varphi_{0}T_{1}\tag{2-1}\\
+			T_{2}&=\frac{1-\sin^{2}\varphi_{0}\sin^{2}\theta}{\cos\varphi_{0}}T_{1}\tag{2-2}\\
+			T_{2}^{\prime}&=-\frac{\sin^{2}\theta\sin\varphi_{0}}{\sin\beta}T_{1}\tag{2-3}
+		\end{align*}
+		\begin{tabular}{cl}
+		其中：&$\theta$—主动轴转角（°）\\
+			&$\varphi_0$—输 入轴与输出轴夹角（°）\\
+			&$T_1$—主动轴驱动扭矩（$\mathrm{N\cdot m}$）\\
+		\end{tabular}\\\n
+		在校核长轴的强度时，主要的参数是从动轴对主动轴的反扭矩$T_2$，由于从动轴对主动轴的扭矩和主动轴对从动轴的扭矩大小相同，因而只需要求得从动轴在实际使用时所收到的最大扭矩，便得到了校核长轴强度的关键参数$T_1$，如图\ref{czdlcdt}所示，长轴输出的动力经万向节和同步带传动（图中红线）后直接作用与末端钻头执行机构的摆动动作。在钻孔任务时，末端的执行机构（图中黄色框）只有进给运动，因而实际的负载就是末端执行机构的重量，在SolidWorks中设置钻头伸缩机构的材料为合金钢（质量密度为$\SI{7700}{kg/m^3}$），钻头的材料为高速切削钢11SMn30（质量密度为$\SI{7800}{kg/m^3}$），可求得末端机构（含钻头驱动电机）的总质量为$m=\SI{60.474}{kg}$，力臂长度取最大近似为$h_{\max}=\SI{60}{mm}$。\n
+		\p[0.35]{长轴动力传递图.png}{长轴动力传递图}{czdlcdt}\n
+		经带传动后，可求得万向节从动轴的扭矩为
+		\begin{align*}
+			T_{dn}&=\frac{mg\cdot h_{\max}}{\eta_{12}}\\
+			&=\frac{60.474\times9.8\times0.06}{1.5}\\
+			&=\SI{27.71}{N\cdot m}
+		\end{align*}\n
+		结合设计参数：
+		\begin{center}
+			\renewcommand{\arraystretch}{1}
+			\begin{tabular}{|c|c|}
+				\hline$\varphi_{0\max}$（°）&$\theta_{\max}$（N）\\
+				\hline30&90\\\hline
+			\end{tabular}
+		\end{center}\n
+		代入式（2-2）便求得作用主动轴所需要输出的扭矩
+		\begin{align*}
+			T_d&=\frac{T_{dn}\cos\varphi_{0\max}}{1-\sin^2\varphi_{0\max}\sin^2\theta_{\max}}\\
+			&=\frac{27.71\times\cos30^{\circ}}{1-\sin^230^{\circ}\sin^290^{\circ}}\\
+			&=\SI{32.10}{N\cdot m}
+		\end{align*}\n
+		同样将此计算结果乘以安全系数得到轴的校核扭矩$$T_m=T_dS=\SI{48.10}{N\cdot m}$$\n
+		轴的材料同样为1045钢（美标45号钢），其余参数设置与短轴均相同，经Simlation有限元分析（如图\ref{czjh}）轴上屈服力最大处为$9.086\times10^7~\mathrm{N/m^2}$，小于材料的最大屈服强度$5.3\times10^8~\mathrm{N/m^2}$，经验证该轴满足设计强度的要求。
+		\p[0.4]{长轴强度校核应力分布图.png}{长轴强度校核应力分布图}{czjh}
+	\subsection{主运动臂大臂的结构设计}
+	为了便于传动轴及轴承的安装，大臂整体分为两个部分，由主体结构和72齿同步带轮盘组成，两者之间通过螺栓螺母连接，由于大臂内部传动轴的输入和输出的转矩方向不同，因而大臂的结构采用包夹式，将控制小臂转动与摆动的关节夹于大臂之中，动力的传递通过三个锥齿轮来控制，如图\ref{zcl}，左右两锥齿轮的齿数为24齿，中间大锥齿轮的齿数为48，当左右两锥齿轮的旋转方向相对于同一坐标系相反时，大锥齿轮绕轴线做旋转运动，此时的传动比$i$和增扭系数$\eta$为$$i=\frac{z_2}{z_1}=\frac{48}{24}=2$$\n
+	当左右两锥齿轮的旋转方向相对于同一坐标系相同时，大锥齿轮的旋转运动处于锁定状态，此时小臂摆动，小锥齿轮转过的角度$\theta_0$与小臂的摆动角$\theta$相同。这样设计的好处是，当小臂无论是转动还是摆动时，都同时由两个锥齿轮传动。单个锥齿轮的轮齿所受的力较小，系统允许的转动转矩更大，但是其缺点也十分明显，对配合精度要求高以及对两锥齿的正反转的等速性要求极高。\n
+	\p[0.1]{锥齿轮啮合示意图.PDF}{锥齿轮啮合示意图}{zcl}
+	如图\ref{dbsy}为大臂结构的整体示意图，其尺寸的设计的整体思路如下：\n
+	取啮合好的锥齿轮组中两个小锥齿轮的大端端面间之间的垂直距离为基准长度$d_0$，支撑小锥齿轮所用6008轴承的宽度为$B_b=\SI{15}{mm}$且轴承一端面到锥齿轮大端的距离记为$d_1$，轴承另一端面到同步带轮的距离记为$d_2$，两36齿同步带轮的宽度均为$B_s=\SI{40}{mm}$，所有的轴向安装间隙设计为$\delta=\SI{4}{mm}$，大臂外壳的厚度为$B_e=\SI{15}{mm}$，故由上述尺寸可以求得大臂外壳宽度为
+	\begin{align*}
+		B_{width}&=d_0+2d_1+2B_b+2d_2+2B_s+2B_e\\
+		&=150+8\times2+15\times2+17\times2+40\times2+15\times2\\
+		&=\SI{340}{mm}
+	\end{align*}\n
+	大臂外壳长度及厚度设计应以保证内部同步带轮上带的包角$\geqslant120^{\circ}$为设计准则，本次设计中，由于同步带存在扭转，故要求带在带轮上的最小包角为$\alpha_{\min}=\SI{180}{°}$由此可以得到两个防跑偏轮的最大中心间距即为同步带轮的节圆直径，取$l_{0\max}=\SI{65}{mm}$，防跑偏轮的厚度$B_f$与36齿同步带轮的宽度$B_s$相同，即$B_f=B_s=\SI{40}{mm}$，所有的轴向安装间隙设计为$\delta=\SI{4}{mm}$，大臂外壳的厚度为$B_e=\SI{15}{mm}$，故由上述尺寸可求得大臂外壳最小高度为
+	\begin{align*}
+		B_{height\min}&=l_{0\max}+2\times\frac{B_f}{2}+2\delta+2B_e\\
+		&=65+40+8+30\\
+		&=\SI{143}{mm}
+	\end{align*}\n
+	故只要大臂的厚度大于$\SI{143}{mm}$均可满足工作要求，但为了便于大臂内零件的安装及使带传动有充足的空间，取$B_{height}=\SI{165}{mm}$。\n
+	大臂的长度设计应满足：不干涉小臂摆转机构的正常运动且保证带传动的正常运行互不干涉。72齿同步带轮的宽度$B_{s72}=\SI{50}{mm}$，36齿同步带轮的宽度$B_{s36}=\SI{40}{mm}$，安装机器人关节轴承的预留长度为$s=\SI{43}{mm}$，小臂摆转机构的半径$r=\SI{113}{mm}$且藏入大臂的深度为$d_e=\SI{87}{mm}$，大臂外壳的厚度为$B_e=\SI{15}{mm}$，故由上述尺寸可求得大臂外壳最小长度为
+	\begin{align*}
+		B_{length\min}&=B_{s72}+2B_{s36}+s+r+2B_e+d_e\\
+		&=50+2\times40+43+113+2\times15+87\\
+		&=\SI{403}{mm}
+	\end{align*}\n
+	故综上便求得整个大臂的基本尺寸，对于其他安装轴承和螺栓的部位，为了节约设计成本且尽可能的多用标准件，其尺寸的确定完全基于标准件的尺寸。\n
+	\p[0.12]{大臂整体结构示意图.PDF}{大臂整体结构示意图}{dbsy}\n
+	\subsection{主运动臂小臂摆转关节的设计}
+	当大臂的尺寸设计好后，夹于大臂之中的小臂摆转关节的尺寸就很容易得到了，其设计准则应满足：摆转关节应能将锥齿轮传动系统完全包裹在其中，且保证十字轴万向节在设计范围内自由运动，并留有安装轴承的空间。
+	\subsection{主运动臂大臂连接螺栓的设计与强度校核}
+	主运动臂小臂的结构设计\n
+	主运动臂小臂的结构设计\n
+	主运动臂小臂的结构设计\n
+	\subsection{同步带轮及全局传动的设计}
+	同步带轮及全局传动的设计\n
+	同步带轮及全局传动的设计\n
+	同步带轮及全局传动的设计\n
+	\subsection{支撑钻台的结构设计}
+	2$-$DOF支撑钻台的结构设计
+	\subsection{本章小结}
+	本章小结
+\section{钻台系统的运动学分析}
+	\subsection{运动学建模SDH法和MDH的概述}
+	本次设计的运动学模型均基于MATLABRoboticsToolBox建立，运动学建模DH法在MATLABRoboticsToolBox中有SDH和MDH之分。通过向右连乘表示四个运动学矩阵便得到矩阵$A_i$，此矩阵成为变换矩阵，变换矩阵分别表示四个依次的运动。由于所有运动变换都是相对于当前坐标系的，因此所有的矩阵均应向右乘的。\n
+	SDH建模的顺序是$$\theta\rightarrow d\rightarrow\alpha\rightarrow a$$\n
+	SDH的变换矩阵为\\
+	$\begin{aligned}
+		A_{iSDH}&=\operatorname{Rot}\left(z,\theta_{i}\right)\times\operatorname{Trans}\left(0,0,d_{i}\right)\times\operatorname{Rot}\left(x,\alpha_{i}\right)\times\operatorname{Trans}\left(a_{i},0,0\right)\\
+		&=\left[\begin{array}{cccc}
+			C\theta_i&-S\theta_i&0&0\\
+			S\theta_i&C\theta_i&0&0\\
+			0&0&1&0\\
+			0&0&0&1\end{array}\right]
+		\left[\begin{array}{cccc}
+			1&0&0&0\\
+			0&1&0&0\\
+			0&0&1&d_i\\
+			0&0&0&1\end{array}\right]
+		\left[\begin{array}{cccc}
+			1&0&0&0\\
+			0&C\alpha_i&-S\alpha_i&0\\
+			0&S\alpha_i&C\alpha_i&0\\
+			0&0&0&1\end{array}\right]
+		\left[\begin{array}{cccc}
+			1&0&0&a_i\\
+			0&1&0&0\\
+			0&0&1&0\\
+			0&0&0&1\end{array}\right]\\
+		A_{i\mathrm{SDH}}&=\left[\begin{array}{cccc}
+			C\theta_i&-S\theta_iC\alpha_i&S\theta_iS\alpha_i&a_iC\theta_i\\
+			S\theta_i&C\theta_iC\alpha_i&-C\theta_iS\alpha_i&a_iS\theta_i\\
+			0&S\alpha_i&C\alpha_i&d_i\\
+			0&0&0&1\end{array}\right]\end{aligned}$\\\n
+	MDH建模的顺序是$$\alpha\rightarrow a\rightarrow\theta\rightarrow d$$\n
+	MDH的变换矩阵为\\
+	$\begin{aligned}
+		A_{iMDH}&=\operatorname{Rot}\left(z,\theta_{i}\right)\times\operatorname{Trans}\left(0,0,d_{i}\right)\times\operatorname{Rot}\left(x,\alpha_{i}\right)\times\operatorname{Trans}\left(a_{i},0,0\right)\\
+		&=\left[\begin{array}{cccc}
+			1&0&0&0\\
+			0&C\alpha_{i-1}&-S\alpha_{i-1}&0\\
+			0&S\alpha_{i-1}&C\alpha_{i-1}&0\\
+			0&0&0&1\end{array}\right]
+		\left[\begin{array}{cccc}
+			1&0&0&a_{i-1}\\
+			0&1&0&0\\
+			0&0&1&0\\
+			0&0&0&1\end{array}\right]
+		\left[\begin{array}{cccc}
+			C\theta_{i}&-S\theta_{i}&0&0\\
+			S\theta_{i}&C\theta_{i}&0&0\\
+			0&0&1&0\\
+			0&0&0&1\end{array}\right]
+		\left[\begin{array}{cccc}
+			1&0&0&0\\
+			0&1&0&0\\
+			0&0&1&d_{i}\\
+			0&0&0&1\end{array}\right]\\
+		A_{i\mathrm{MDH}}&=\left[\begin{array}{cccc}
+			C\theta_{i}&-S\theta_{i}&0&a_{i-1}\\
+			S\theta_{i}C\alpha_{i-1}&C\theta_{i}C\alpha_{i-1}&-S\alpha_{i-1}&-d_{i}S\alpha_{i-1}\\
+			S\theta_{i}S\alpha_{i-1}&C\theta_{i}S\alpha_{i-1}&C\alpha_{i-1}&d_{i}C\alpha_{i-1}\\
+			0&0&0&1\end{array}\right]\end{aligned}$\\\n
+	由上述所得到的变换矩阵，不难发现，描述两个关节之间的关系只需要四个变量，即关节本身的位姿和关节连接节点的状态（下一关节的位姿）。因此，DH法的简化方式很明确，就是将$y$轴位移和旋转的2个自由度去除，仅考虑$x$和$z$轴的位移与旋转。如此一来，6个自由度的位姿变为由4个参数来表示。其中参数采用关节角（JointAngle）$theta$、连杆偏移（LinkOffset）$d$、连杆扭转角（LinkTwist）$\alpha$、连杆长度（LinkLength）$a$共4个参数来表述相邻两个坐标系的关系，通常在建立转动运动学模型的过程中，默认关节角$theta$是浮动的，即在模型建立后，根据实际需要来给定的$theta$。\n
+	\subsection{基于SDH法的运动学模型建立}
+	本次设计的钻头系统运动学建模采用SDH法，即标准的D$-$H运动学建模，其特点是
+	\subsection{逆运动学模型建立}
+	逆运动学模型建立
+	\subsection{基于MATLAB的钻台系统运动学仿真模拟}
+		\subsubsection{正运动学分析}
+		正运动学分析
+		\subsubsection{逆运动学分析}
+		逆运动学分析
+	\subsection{运动学仿真数据分析与图解}
+	运动学仿真数据分析与图解
+	\subsection{本章小结}
+	本章小结
+\section{基于笛卡尔坐标系的轨迹规划和力学分析}
+	\subsection{轨迹的设计与规划}
+	轨迹的设计与规划
+	\subsection{基于MATLAB/Simulink的轨迹规划验证}
+	基于MATLAB/Simulink的轨迹规划验证
+	\subsection{主要零件的应力分析}
+	主要零件的应力分析
+	\subsection{本章小结}
+	本章小结
+\section{SolidWorks和MATLAB/Simulink联合的运动仿真}
+	\subsection{OpenCV和mediapipe的创新应用}
+	OpenCV和mediapipe的创新应用
+	\subsection{钻孔任务的模拟仿真}
+	钻孔任务的模拟仿真
+	\subsection{模拟仿真结果的分析}
+	模拟仿真结果的分析
+	\subsection{本章小结}
+	本章小结
+\section{总结与展望}
+	\subsection{总结}
+	总结
+	\subsection{展望}
+	展望
+\clearpage
+\section*{致谢}
+\addcontentsline{toc}{section}{致谢}
+	感谢\n
+	感谢\n
+	感谢\n
+\clearpage
+\addcontentsline{toc}{section}{参考文献}
+\begin{thebibliography}{99}
+	\rf{ch01}{赵三星,肖涵,刘云涛等.十字轴万向节动力分析和扭矩测试研究[C]//全国冶金自动化信息网,《冶金自动化》杂志社.全国冶金自动化信息网2009年会论文集.《冶金自动化》杂志社,2009:462-466.}
+\end{thebibliography}
+\end{spacing}
+\end{document}
