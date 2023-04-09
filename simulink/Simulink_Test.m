@@ -1,13 +1,12 @@
 %% By Cheniana Thesis
 clear,close all
 %%  关节建模、定义角度限制
-L(1) = Link('prismatic','d',0.88,'a',0,'alpha',pi/2,'theta',0,'qlim',[0,1.2]);
-L(2) = Link('revolute','d',0.4905,'a',0,'alpha',-pi/2,'qlim',[-180,180]/180*pi);
-L(3) = Link('revolute','d',0,  'a',0,'alpha', pi/2,'qlim',[-30,30]  /180*pi);
-L(4) = Link('revolute','d',0.255,'a',0,'alpha',-pi/2,'qlim',[-180,180]/180*pi);
-L(5) = Link('revolute','d',0,  'a',0,'alpha', pi/2,'qlim',[-90,90]  /180*pi);
-L(6) = Link('revolute','d',0.48,'a',0,'alpha', pi/2,'qlim',[-180,180]/180*pi);
-rbts = SerialLink(L(1:6),'name','rbts');
+L(1) = Link('revolute','d',0.4905,'a',0,'alpha',-pi/2,'qlim',[-180,180]/180*pi);
+L(2) = Link('revolute','d',0,  'a',0,'alpha', pi/2,'qlim',[-30,30]  /180*pi);
+L(3) = Link('revolute','d',0.255,'a',0,'alpha',-pi/2,'qlim',[-180,180]/180*pi);
+L(4) = Link('revolute','d',0,  'a',0,'alpha', pi/2,'qlim',[-90,90]  /180*pi);
+L(5) = Link('revolute','d',0.48,'a',0,'alpha', pi/2,'qlim',[-180,180]/180*pi);
+rbts = SerialLink(L(1:5),'name','rbts');
 rbts.teach
 %%  运动学正、逆解
 % joint_theta = [30,30,30,0,0]/ 180 * pi;%设置关节转角
